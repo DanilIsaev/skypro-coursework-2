@@ -42,8 +42,8 @@ public class Question {
 
     @Override
     public String toString() {
-        return "question:" + question + '\'' +
-                "answer:" + answer + '\'';
+        return "question:" + question + " " +
+                "answer:" + answer + "<br>";
     }
 
 

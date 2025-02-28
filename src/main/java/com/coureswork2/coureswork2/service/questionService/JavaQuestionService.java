@@ -10,7 +10,10 @@ import java.util.*;
 public class JavaQuestionService implements QuestionService {
 
     private final Set<Question> questionSet = new HashSet<>(List.of(
-            new Question("Вопрос", "Ответ")
+            new Question("Вопрос 1", "Ответ 1"),
+            new Question("Вопрос 2", "Ответ 2"),
+            new Question("Вопрос 3", "Ответ 3"),
+            new Question("Вопрос 4", "Ответ 4")
     ));
 
     //Создание нового вопроса
@@ -19,7 +22,9 @@ public class JavaQuestionService implements QuestionService {
         if (question.isEmpty() || answer.isEmpty()) {
             throw new FieldEmptyException();
         }
-        return new Question(question, answer);
+        Question questionNew = new Question(question, answer);
+        questionSet.add(questionNew);
+        return questionNew;
     }
 
     //Добавление нового вопроса в список вопросов
