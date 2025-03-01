@@ -1,6 +1,7 @@
 package com.coureswork2.coureswork2.service.questionService;
 
 import com.coureswork2.coureswork2.exceptions.FieldEmptyException;
+import com.coureswork2.coureswork2.exceptions.ListQuestionsIsEmptyException;
 import com.coureswork2.coureswork2.objects.Question;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +17,17 @@ public class JavaQuestionService implements QuestionService {
             new Question("Вопрос 4", "Ответ 4")
     ));
 
-    //Создание нового вопроса
     @Override
     public Question add(String question, String answer) {
         if (question.isEmpty() || answer.isEmpty()) {
             throw new FieldEmptyException();
+        } else {
+            Question questionNew = new Question(question, answer);
+            questionSet.add(questionNew);
+            return questionNew;
         }
-        Question questionNew = new Question(question, answer);
-        questionSet.add(questionNew);
-        return questionNew;
     }
 
-    //Добавление нового вопроса в список вопросов
     @Override
     public Question add(Question question) {
         questionSet.add(question);
@@ -36,7 +36,10 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question remove(Question question) {
-        //ЗДЕСЬ ДОЛЖЕНО БЫТЬ ВАШЕ ИСКЛЮЧЕНИЕ
+        if(!questionSet.contains(question))
+        {
+            throw new
+        }
         questionSet.remove(question);
         return question;
     }
@@ -49,10 +52,9 @@ public class JavaQuestionService implements QuestionService {
     @Override
     public Question getRandomQuestion() {
         if (questionSet.isEmpty()) {
-            //ЗДЕСЬ ДОЛЖЕНО БЫТЬ ВАШЕ ИСКЛЮЧЕНИЕ
+            throw new ListQuestionsIsEmptyException();
         }
-        //Вопрос: что выберет метод если выйдет число равное размеру Set
-        int random = new Random().nextInt(questionSet.size());
+        int random = new Random().nextInt(questionSet.size()); //генерация числа от 0 до questionSet.size()-1, включительно
         return questionSet.stream().skip(random).findFirst().orElse(null);
     }
 }
