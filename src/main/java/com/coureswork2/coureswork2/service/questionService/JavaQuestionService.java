@@ -2,6 +2,7 @@ package com.coureswork2.coureswork2.service.questionService;
 
 import com.coureswork2.coureswork2.exceptions.FieldEmptyException;
 import com.coureswork2.coureswork2.exceptions.ListQuestionsIsEmptyException;
+import com.coureswork2.coureswork2.exceptions.QestionIsNotListException;
 import com.coureswork2.coureswork2.objects.Question;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +39,7 @@ public class JavaQuestionService implements QuestionService {
     public Question remove(Question question) {
         if(!questionSet.contains(question))
         {
-            throw new
+            throw new QestionIsNotListException();
         }
         questionSet.remove(question);
         return question;
