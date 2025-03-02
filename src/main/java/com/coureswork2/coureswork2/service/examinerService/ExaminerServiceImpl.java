@@ -24,8 +24,7 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if (amount > questionService.getAll().size())
-        {
+        if (amount > questionService.getAll().size() || amount < 0) {
             throw new RequestedNumberMoreListSizeException();
         }
         return Stream.generate(questionService::getRandomQuestion)
