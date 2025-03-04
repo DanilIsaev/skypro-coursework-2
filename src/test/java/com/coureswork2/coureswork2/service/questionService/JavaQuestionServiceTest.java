@@ -64,10 +64,8 @@ class JavaQuestionServiceTest {
     void getRandomQuestion() {
         Random random = mock(Random.class, withSettings().withoutAnnotations());
         when(random.nextInt(anyInt())).thenReturn(0);
+        out.setRandom(random);
         assertEquals(RESULT_RANDOM1, out.getRandomQuestion());
     }
 
-    @Test
-    void getRandomQuestionListQuestionsIsEmptyException() {
-    }
 }

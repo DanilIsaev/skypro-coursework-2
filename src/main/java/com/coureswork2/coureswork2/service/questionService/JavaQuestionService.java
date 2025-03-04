@@ -1,7 +1,6 @@
 package com.coureswork2.coureswork2.service.questionService;
 
 import com.coureswork2.coureswork2.exceptions.FieldEmptyException;
-import com.coureswork2.coureswork2.exceptions.ListQuestionsIsEmptyException;
 import com.coureswork2.coureswork2.exceptions.QestionIsNotListException;
 import com.coureswork2.coureswork2.objects.Question;
 import org.springframework.stereotype.Service;
@@ -17,6 +16,12 @@ public class JavaQuestionService implements QuestionService {
             new Question("Вопрос 3", "Ответ 3"),
             new Question("Вопрос 4", "Ответ 4")
     ));
+
+    private Random random = new Random();
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
 
     @Override
     public Question add(String question, String answer) {
@@ -37,8 +42,7 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question remove(Question question) {
-        if(!questionSet.contains(question))
-        {
+        if (!questionSet.contains(question)) {
             throw new QestionIsNotListException();
         }
         questionSet.remove(question);
@@ -52,12 +56,6 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-        if (questionSet.isEmpty()) {
-            throw new ListQuestionsIsEmptyException();
-        }
-        int random = new Random().nextInt(questionSet.size()); //генерация числа от 0 до questionSet.size()-1, включительно
-        return questionSet.stream().skip(random).findFirst().orElse(null);
+        return questionSet.stream().skip(random.nextInt(questionSet.size())).findFirst().orElse(null);
     }
-
-
 }

@@ -39,4 +39,6 @@ public class DataForTest {
             new Question("Вопрос 3", "Ответ 3")));
     public final static Question RESULT_REMOVE = new Question("Вопрос 4", "Ответ 4");
 
+    public final static Set<Question> EMPTY_LIST = new HashSet<>(List.of());
+
 }
