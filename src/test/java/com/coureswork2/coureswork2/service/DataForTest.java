@@ -12,10 +12,9 @@ public class DataForTest {
     public final static Question RESULT_RANDOM1 = new Question("Вопрос 1", "Ответ 1");
     public final static Question RESULT_RANDOM2 = new Question("Вопрос 2", "Ответ 2");
 
-    public final static Collection<Question> RESULT_LIST = new ArrayList<Question>(List.of(
+    public final static Collection<Question> RESULT_LIST = new ArrayList<>(List.of(
             new Question("Вопрос 1", "Ответ 1"),
             new Question("Вопрос 2", "Ответ 2")
-            /* new Question("Вопрос 3", "Ответ 3")*/
     ));
 
     public final static String ADD_QUESTION = "Вопрос 5";
@@ -28,5 +27,16 @@ public class DataForTest {
             new Question("Вопрос 4", "Ответ 4"),
             new Question("Вопрос 5", "Ответ 5")
     ));
+
+    public final static String ADD_QUESTION_BAD = "";
+    public final static String ADD_ANSWER_BAD = "";
+
+    public final static String REMOVE_QUESTION = "Вопрос 4";
+    public final static String REMOVE_ANSWER= "Ответ 4";
+    public final static Set<Question> RESULT_REMOVE_LIST = new HashSet<>(List.of(
+            new Question("Вопрос 1", "Ответ 1"),
+            new Question("Вопрос 2", "Ответ 2"),
+            new Question("Вопрос 3", "Ответ 3")));
+    public final static Question RESULT_REMOVE = new Question("Вопрос 4", "Ответ 4");
 
 }

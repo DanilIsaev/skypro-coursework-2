@@ -58,4 +58,6 @@ public class JavaQuestionService implements QuestionService {
         int random = new Random().nextInt(questionSet.size()); //генерация числа от 0 до questionSet.size()-1, включительно
         return questionSet.stream().skip(random).findFirst().orElse(null);
     }
+
+
 }

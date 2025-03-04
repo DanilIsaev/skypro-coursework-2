@@ -3,14 +3,10 @@ package com.coureswork2.coureswork2.service.examinerService;
 import com.coureswork2.coureswork2.exceptions.RequestedNumberMoreListSizeException;
 import com.coureswork2.coureswork2.objects.Question;
 import com.coureswork2.coureswork2.service.questionService.QuestionService;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @Service
